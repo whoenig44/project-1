@@ -1,2 +1,2 @@
-# project-1
+# bootcamp-project-1
 GitHub Repository for Syntax Surfers Project Team!
