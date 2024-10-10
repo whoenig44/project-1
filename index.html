@@ -7,10 +7,10 @@
     <title>Dropdown Example</title>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Enter text here">
-    <button onclick="addToDropdown()">Add to Dropdown</button>
+    <input type="text" id="textInput" placeholder="Enter store name here">
+    <button onclick="addToDropdown()">Add Store</button>
     <select id="dropdown">
-        <option value="">Select an option</option>
+        <option value="">Select a store</option>
     </select>
 
 
@@ -23,6 +23,17 @@
     </select>
    
     <ul id="itemList"></ul>
+
+    <div class="card">
+      <h1>Todo Tracker</h1>
+      <form id="todo-form" method="POST">
+        <label for="todo-text">Add a Todo: </label>
+        <input type="text" placeholder="I need to..." name="todo-text" id="todo-text" />
+      </form>
+      <p>Todo Count: <span id="todo-count">0</span></p>
+      <ul id="todo-list"></ul>
+  
+  </div>
 
 
     <script>
@@ -55,6 +66,98 @@
         listItem.textContent = selectedItem;
         itemList.appendChild(listItem);
     }
+
+
+    const todoInput = document.querySelector('#todo-text');
+const todoForm = document.querySelector('#todo-form');
+const todoList = document.querySelector('#todo-list');
+const todoCountSpan = document.querySelector('#todo-count');
+
+const todos = [];
+
+// The following function renders items in a todo list as <li> elements
+function renderTodos() {
+  // Clear todoList element and update todoCountSpan
+  todoList.innerHTML = '';
+  todoCountSpan.textContent = todos.length;
+
+  // Render a new li for each todo
+  for (let i = 0; i < todos.length; i++) {
+    const todo = todos[i];
+
+    const li = document.createElement('li');
+    li.textContent = todo;
+    li.setAttribute('data-index', i);
+
+    const button = document.createElement('button');
+    button.textContent = 'Complete ✔️';
+
+    li.appendChild(button);
+    todoList.appendChild(li);
+  }
+}
+
+// This function is being called below and will run when the page loads.
+function init() {
+  // Get stored todos from localStorage
+  const storedTodos = JSON.parse(localStorage.getItem('todos'));
+
+  // If todos were retrieved from localStorage, update the todos array to it
+  if (storedTodos !== null) {
+    todos = storedTodos;
+  }
+
+  // This is a helper function that will render todos to the DOM
+  renderTodos();
+}
+
+function storeTodos() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Add submit event to form
+todoForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const todoText = todoInput.value.trim();
+
+  // Return from function early if submitted todoText is blank
+  if (todoText === '') {
+    return;
+  }
+
+  // Add new todoText to todos array, clear the input
+  todos.push(todoText);
+  todoInput.value = '';
+
+  // Store updated todos in localStorage, re-render the list
+  storeTodos();
+  renderTodos();
+});
+
+// Add click event to todoList element
+todoList.addEventListener('click', function (event) {
+  const element = event.target;
+
+  // Checks if element is a button
+  if (element.matches('button') === true) {
+    // Get its data-index value and remove the todo element from the list
+    const index = element.parentElement.getAttribute('data-index');
+    todos.splice(index, 1);
+
+    // Store updated todos in localStorage, re-render the list
+    storeTodos();
+    renderTodos();
+  }
+});
+
+// Calls init to retrieve data and render it to the page on load
+init();
+
+
+
+
     </script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
