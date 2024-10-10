@@ -7,37 +7,52 @@
     <title>Dropdown Example</title>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Enter text here">
-    <button onclick="addToDropdown()">Add to Dropdown</button>
+    <input type="text" id="textInput" placeholder="Enter store name here">
+    <button onclick="addToDropdown()">Add Store</button>
     <select id="dropdown">
-        <option value="">Select an option</option>
+        <option value="">Select a store</option>
     </select>
 
     <select id="itemDropdown" onchange="addItemToList()">
         <option value="Item 1">Item 1</option>
         <option value="Item 2">Item 2</option>
     </select>
+   
+    <ul id="itemList"></ul>
+
 
     <script>
         let items = [];
 
         function addToDropdown() {
-            const textInput = document.getElementById('textInput').value;
-            if (textInput) {
-                items.push(textInput);
-                const dropdown = document.getElementById('dropdown');
-                const option = document.createElement('option');
-                option.value = textInput;
-                option.text = textInput;
-                dropdown.add(option);
+            const input = document.getElementById('textInput').value;
+            const dropdown = document.getElementById('dropdown');
 
-                // Create a new variable for each item
-                window[textInput] = textInput;
 
-                console.log(items); // Log the array to verify the items
-                console.log(window[textInput]); // Log the new variable
+            if (input) {
+                const newOption = document.createElement('option');
+                newOption.value = input;
+                newOption.textContent = input;
+                dropdown.appendChild(newOption);
+                document.getElementById('textInput').value = ''; // Clear input
+            } else {
+                alert('Please enter some text');
             }
         }
+
+
+
+
+        function addItemToList() {
+        const dropdown = document.getElementById("itemDropdown");
+        const selectedItem = dropdown.value;
+        const itemList = document.getElementById("itemList");
+
+
+        const listItem = document.createElement("li");
+        listItem.textContent = selectedItem;
+        itemList.appendChild(listItem);
+    }
     </script>
 </body>
 </html>
