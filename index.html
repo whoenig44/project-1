@@ -13,50 +13,32 @@
         <option value="">Select an option</option>
     </select>
 
-
-
-
     <select id="itemDropdown" onchange="addItemToList()">
         <option value="Item 1">Item 1</option>
         <option value="Item 2">Item 2</option>
-        <option value="Item 3">Item 3</option>
     </select>
-   
-    <ul id="itemList"></ul>
-
 
     <script>
+        let items = [];
+
         function addToDropdown() {
-            const input = document.getElementById('textInput').value;
-            const dropdown = document.getElementById('dropdown');
+            const textInput = document.getElementById('textInput').value;
+            if (textInput) {
+                items.push(textInput);
+                const dropdown = document.getElementById('dropdown');
+                const option = document.createElement('option');
+                option.value = textInput;
+                option.text = textInput;
+                dropdown.add(option);
 
+                // Create a new variable for each item
+                window[textInput] = textInput;
 
-            if (input) {
-                const newOption = document.createElement('option');
-                newOption.value = input;
-                newOption.textContent = input;
-                dropdown.appendChild(newOption);
-                document.getElementById('textInput').value = ''; // Clear input
-            } else {
-                alert('Please enter some text');
+                console.log(items); // Log the array to verify the items
+                console.log(window[textInput]); // Log the new variable
             }
         }
-
-
-
-
-        function addItemToList() {
-        const dropdown = document.getElementById("itemDropdown");
-        const selectedItem = dropdown.value;
-        const itemList = document.getElementById("itemList");
-
-
-        const listItem = document.createElement("li");
-        listItem.textContent = selectedItem;
-        itemList.appendChild(listItem);
-    }
     </script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
 
