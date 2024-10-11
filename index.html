@@ -7,7 +7,8 @@
     <title>GLO--GroceryListOrganizer</title>
 </head>
 <body>
-    <input type="text" id="textInput" placeholder="Enter store name here">
+  <!--Store input-->
+    <input type="text" id="storeInput" placeholder="Enter store name here">
     <button onclick="addToDropdown()">Add Store</button>
     <select id="dropdown">
         <option value="">Select a store</option>
@@ -17,8 +18,8 @@
 
 
     
-   
-    <ul id="itemList"></ul>
+  <!--Item input--> 
+    <ul id="itemList"></ul><!--this is not called anywhere yet-->
 
     <div class="card">
     
@@ -34,7 +35,7 @@
 
     <script>
         function addToDropdown() {
-            const input = document.getElementById('textInput').value;
+            const input = document.getElementById('storeInput').value;
             const dropdown = document.getElementById('dropdown');
 
             if (input) {
@@ -43,7 +44,7 @@
                 newOption.textContent = input;
                 dropdown.appendChild(newOption);
                 document.getElementById('store_value').innerHTML = input;
-                document.getElementById('textInput').value = ''; // Clear input
+                document.getElementById('storeInput').value = ''; // Clear input
             } else {
                 alert('Please enter some text');
             }
