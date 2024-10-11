@@ -21,16 +21,13 @@
     <ul id="itemList"></ul>
 
     <div class="card">
-    
-      <form id="todo-form" method="POST">
-        <label for="todo-text" id = "store_value">Add an item for this store </label>
-        <input type="text" placeholder="Item I buy at this store" name="todo-text" id="todo-text" />
-      </form>
-      <p>Item count: <span id="todo-count">0</span></p>
-      <ul id="todo-list"><input type="checkbox"></ul>
-  
-  </div>
-
+        <form id="todo-form" method="POST">
+            <label for="todo-text" id="store_value">Add an item for this store </label>
+            <input type="text" placeholder="Item I buy at this store" name="todo-text" id="todo-text" />
+        </form>
+        <p>Item count: <span id="todo-count">0</span></p>
+        <ul id="todo-list"></ul>
+    </div>
 
     <script>
         let items = [];
@@ -51,20 +48,41 @@
             }
         }
 
-
-
-
         function addItemToList() {
-        var itemsarray = [];
-        const dropdown = document.getElementById("itemDropdown");
-        const selectedItem = dropdown.value;
-        const itemList = document.getElementById("itemList");
+            var itemsarray = [];
+            const dropdown = document.getElementById("itemDropdown");
+            const selectedItem = dropdown.value;
+            const itemList = document.getElementById("itemList");
 
+            const listItem = document.createElement("li");
+            listItem.textContent = selectedItem;
+            itemList.appendChild(listItem);
+        }
 
-        const listItem = document.createElement("li");
-        listItem.textContent = selectedItem;
-        itemList.appendChild(listItem);
-    }
+        document.getElementById('todo-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input = document.getElementById('todo-text').value;
+            if (input.trim() !== "") {
+                addItemToChecklist(input);
+                document.getElementById('todo-text').value = "";
+            }
+        });
+
+        function addItemToChecklist(item) {
+            const list = document.getElementById('todo-list');
+            const listItem = document.createElement('li');
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            listItem.appendChild(checkbox);
+            listItem.appendChild(document.createTextNode(item));
+            list.appendChild(listItem);
+            updateItemCount();
+        }
+
+        function updateItemCount() {
+            const count = document.getElementById('todo-list').getElementsByTagName('li').length;
+            document.getElementById('todo-count').textContent = count;
+        }
     </script>
 </body>
 </html>
