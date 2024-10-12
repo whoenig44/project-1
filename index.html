@@ -8,7 +8,8 @@
 </head>
 <body>
   <!--Store input-->
-    <input type="text" id="storeInput" placeholder="Enter store name here">
+  
+  <input type="text" id="storeInput" placeholder="Enter store name here">
     <button onclick="addToDropdown()">Add Store</button>
     <select id="dropdown">
         <option value="">Select a store</option>
@@ -32,7 +33,7 @@
   
   </div>
 
-
+  <!--Store input dropdown-->
     <script>
         function addToDropdown() {
             const input = document.getElementById('storeInput').value;
@@ -46,7 +47,7 @@
                 document.getElementById('store_value').innerHTML = input;
                 document.getElementById('storeInput').value = ''; // Clear input
             } else {
-                alert('Please enter some text');
+                alert('Please enter store name');
             }
         }
 
@@ -160,7 +161,8 @@ init();
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+    
+<!--this is where we will insert a link to the js file we generate-->
     <footer class="footer">
       <h2></h2>
       <p>Presented by Semantic Surfers    
