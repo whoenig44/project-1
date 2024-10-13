@@ -1,5 +1,5 @@
 //I removed the script from the HTML file, it was casuing issues- ST.
-        let items = [];
+       /* let items = [];
 
         function addToDropdown() {
             const textInput = document.getElementById('textInput').value;
@@ -13,4 +13,6 @@
                 console.log(items); // Log the array to verify the items
             }
         }
-    
+    */
+
+        

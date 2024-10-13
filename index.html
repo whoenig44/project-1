@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>GLO--GroceryListOrganizer</title>
+</head>
+<body>
+  <!--Store input-->
+  <!--I think we need to add a div class in here-SJT-->
+  
+  <!--Needs to be it's own section, and updated to CSS-->
+  <input type="text" id="storeInput" placeholder="Enter store name here">
+    <button onclick="addToDropdown()">Add Store</button>
+    <select id="dropdown">
+        <option value="">Select a store</option>
+    </select><!--won't be able to style the select component (change it to a div and style it if we want that)-->
+
+
+
+
+    
+  <!--Item input--> 
+    <ul id="itemList"></ul><!--this is not called anywhere yet-->
+
+    <div class="card">
+    
+      <form id="todo-form"><!-- method="POST" don't need this, it's dated-->
+        <label for="todo-text" id = "store_value">Add an item for this store </label>
+        <input type="text" placeholder="Item I buy at this store" name="todo-text" id="todo-text" />
+      </form>
+      <p>Item count: <span id="todo-count">0</span></p>
+      <ul id="todo-list"><input type="checkbox"></ul>
+  
+  </div>
+
+  <!--Store input dropdown-->
+    <!--this needs to go into js file-->
+    <script>
+        function addToDropdown() {
+            const input = document.getElementById('storeInput').value;
+            const dropdown = document.getElementById('dropdown');
+
+            if (input) {
+                const newOption = document.createElement('option');
+                newOption.value = input;
+                newOption.textContent = input;
+                dropdown.appendChild(newOption);
+                document.getElementById('store_value').innerHTML = input;
+                document.getElementById('storeInput').value = ''; // Clear input
+            } else {
+                alert('Please enter store name');
+            }
+        }
+    //this needs to go into js file//
+
+
+
+        function addItemToList() {
+        var itemsarray = [];
+        const dropdown = document.getElementById("itemDropdown");
+        const selectedItem = dropdown.value;
+        const itemList = document.getElementById("itemList");
+
+
+        const listItem = document.createElement("li");
+        listItem.textContent = selectedItem;
+        itemsarray.push = (listItem);
+        itemList.appendChild(document.getElementById('listItem'));
+        console.log(itemsarray);
+    }
+
+
+    const todoInput = document.querySelector('#todo-text');
+const todoForm = document.querySelector('#todo-form');
+const todoList = document.querySelector('#todo-list');
+const todoCountSpan = document.querySelector('#todo-count');
+
+const todos = [];
+
+// The following function renders items in a todo list as <li> elements
+function renderTodos() {
+  // Clear todoList element and update todoCountSpan
+  todoList.innerHTML = '';
+  todoCountSpan.textContent = todos.length;
+
+  // Render a new li for each todo
+  for (let i = 0; i < todos.length; i++) {
+    const todo = todos[i];
+
+    const li = document.createElement('li');
+    li.textContent = todo;
+    li.setAttribute('data-index', i);
+
+    const button = document.createElement('button');
+    button.textContent = 'Complete ✔️';
+
+    li.appendChild(button);
+    todoList.appendChild(li);
+  }
+}
+
+// This function is being called below and will run when the page loads.
+function init() {
+  // Get stored todos from localStorage
+  const storedTodos = JSON.parse(localStorage.getItem('todos'));
+
+  // If todos were retrieved from localStorage, update the todos array to it
+  if (storedTodos !== null) {
+    todos = storedTodos;
+  }
+
+  // This is a helper function that will render todos to the DOM
+  renderTodos();
+}
+
+function storeTodos() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+// Add submit event to form
+todoForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const todoText = todoInput.value.trim();
+
+  // Return from function early if submitted todoText is blank
+  if (todoText === '') {
+    return;
+  }
+
+  // Add new todoText to todos array, clear the input
+  todos.push(todoText);
+  todoInput.value = '';
+
+  // Store updated todos in localStorage, re-render the list
+  storeTodos();
+  renderTodos();
+});
+
+// Add click event to todoList element
+todoList.addEventListener('click', function (event) {
+  const element = event.target;
+
+  // Checks if element is a button
+  if (element.matches('button') === true) {
+    // Get its data-index value and remove the todo element from the list
+    const index = element.parentElement.getAttribute('data-index');
+    todos.splice(index, 1);
+
+    // Store updated todos in localStorage, re-render the list
+    storeTodos();
+    renderTodos();
+  }
+});
+
+// Calls init to retrieve data and render it to the page on load
+init();
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+<!--this is where we will insert a link to the js file we generate-->
+    <footer class="footer">
+      <h2></h2>
+      <p>Presented by Semantic Surfers    
+      </p>
+      <img src="/assets/images/smanticsurferimage.jpg"   alt="Semantic Surfers logo">
+    </footer>
+</body>
+</html>
