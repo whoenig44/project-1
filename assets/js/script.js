@@ -1,3 +1,86 @@
+/*function addToDropdown() {
+    const input = document.getElementById('storeInput').value;
+    const dropdown = document.getElementById('dropdown');
+
+    if (storeInput) {
+        const newOption = document.createElement('option');
+        newOption.value = input;
+        newOption.textContent = input;
+        dropdown.appendChild(newOption);
+        document.getElementById('store_value').innerHTML = input;
+        document.getElementById('storeInput').value = ''; // Clear input
+    } else {
+        alert('Please enter store name');
+    }
+}*/
+
+function addToDropdown() {
+    const storeInput = document.getElementById('storeInput').value;
+    if (storeInput) {
+        const dropdown = document.getElementById('dropdown');
+        const option = document.createElement('option');
+        option.value = storeInput;
+        option.text = storeInput;
+        dropdown.add(option);
+
+        const listsContainer = document.getElementById('listsContainer');
+            const ul = document.createElement('ul');
+            ul.id = storeInput + '-list';
+            ul.style.display = 'none';
+            listsContainer.appendChild(ul);
+
+            document.getElementById('storeInput').value = '';
+        }
+    }
+
+    function showList() {
+        const dropdown = document.getElementById('dropdown');
+        const selectedStore = dropdown.value;
+
+        // Hide all lists
+        const lists = document.querySelectorAll('#listsContainer ul');
+        lists.forEach(list => list.style.display = 'none');
+
+        // Show the selected store's list
+        if (selectedStore) {
+            const selectedList = document.getElementById(selectedStore + '-list');
+            if (selectedList) {
+                selectedList.style.display = 'block';
+                document.getElementById('itemInputContainer').style.display = 'block';
+            }
+        } else {
+            document.getElementById('itemInputContainer').style.display = 'none';
+        }
+    }
+
+
+    function addItem() {
+        const dropdown = document.getElementById('dropdown');
+        const selectedStore = dropdown.value;
+        const itemInput = document.getElementById('itemInput').value;
+
+        if (selectedStore && itemInput) {
+            const selectedList = document.getElementById(selectedStore + '-list');
+            const li = document.createElement('li');
+            li.textContent = itemInput;
+
+            // Add delete button to each item
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function() {
+                selectedList.removeChild(li);
+            };
+            li.appendChild(deleteButton);
+
+            selectedList.appendChild(li);
+
+            // Clear the item input field
+            document.getElementById('itemInput').value = '';
+        }
+    }
+
+
+
 //I removed the script from the HTML file, it was casuing issues- ST.
        /* let items = [];
 
