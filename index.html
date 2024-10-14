@@ -8,25 +8,35 @@
 </head>
 <body>
   <!--Store input-->
-  <!--I think we need to add a div class in here-SJT-->
   
-  <!--Needs to be it's own section, and updated to CSS-->
+  
+  <div class="storeNames">
   <input type="text" id="storeInput" placeholder="Enter store name here">
     <button onclick="addToDropdown()">Add Store</button>
-    <select id="dropdown">
+    <select id="dropdown" onchange="showList()">
         <option value="">Select a store</option>
-    </select><!--won't be able to style the select component (change it to a div and style it if we want that)-->
-
+    </select>
+  </div>
+<!--Container for lists-->
+<div id="listsContainer"></div>
 
 
 
     
   <!--Item input--> 
-    <ul id="itemList"></ul><!--this is not called anywhere yet-->
+  <div id="itemInputContainer" style="display: none;">
+    <input type="text" id="itemInput" placeholder="Enter item here">
+    <button onclick="addItem()">Add Item</button>
+  </div>
+
+
+
+  
+  <!-- Old Code<ul id="itemList"></ul>
 
     <div class="card">
     
-      <form id="todo-form"><!-- method="POST" don't need this, it's dated-->
+      <form id="todo-form"> method="POST" don't need this, it's dated
         <label for="todo-text" id = "store_value">Add an item for this store </label>
         <input type="text" placeholder="Item I buy at this store" name="todo-text" id="todo-text" />
       </form>
@@ -34,34 +44,20 @@
       <ul id="todo-list"><input type="checkbox"></ul>
   
   </div>
-
+-->
   <!--Store input dropdown-->
-    <!--this needs to go into js file-->
+    <!--this needs to go into js file
     <script>
-        function addToDropdown() {
-            const input = document.getElementById('storeInput').value;
-            const dropdown = document.getElementById('dropdown');
-
-            if (input) {
-                const newOption = document.createElement('option');
-                newOption.value = input;
-                newOption.textContent = input;
-                dropdown.appendChild(newOption);
-                document.getElementById('store_value').innerHTML = input;
-                document.getElementById('storeInput').value = ''; // Clear input
-            } else {
-                alert('Please enter store name');
-            }
-        }
+       
     //this needs to go into js file//
 
 
 
-        function addItemToList() {
-        var itemsarray = [];
-        const dropdown = document.getElementById("itemDropdown");
-        const selectedItem = dropdown.value;
-        const itemList = document.getElementById("itemList");
+      //  function addItemToList() {
+      //  var itemsarray = [];
+      //  const dropdown = document.getElementById("itemDropdown");
+       // const selectedItem = dropdown.value;
+  const itemList = document.getElementById("itemList");
 
 
         const listItem = document.createElement("li");
@@ -157,19 +153,18 @@ todoList.addEventListener('click', function (event) {
 });
 
 // Calls init to retrieve data and render it to the page on load
-init();
-
+init();-->
 
 
 
     </script>
+    <script src="assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-<!--this is where we will insert a link to the js file we generate-->
+
     <footer class="footer">
       <h2></h2>
-      <p>Presented by Semantic Surfers    
-      </p>
+      <p>Presented by Semantic Surfers</p>
       <img src="/assets/images/smanticsurferimage.jpg"   alt="Semantic Surfers logo">
     </footer>
 </body>
