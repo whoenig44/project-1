@@ -36,7 +36,6 @@ function addToDropdown() {
     }
 
 
-let itemList = JSON.parse(localStorage.getItem('items')) || {};
  
     
 
@@ -95,7 +94,7 @@ let itemList = JSON.parse(localStorage.getItem('items')) || {};
 
 
     let groceries = [];
-    const shoppingItem = {storeInput, itemInput};
+    const shoppingItem = {dropdown, itemInput};
     groceries.push(shoppingItem)
     
     localStorage.setItem("groceries", JSON.stringify(groceries))  
