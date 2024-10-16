@@ -24,24 +24,31 @@ function addToDropdown() {
             stores[storeInput] = [];
         }
 
+
+
+
+
         // Save updated data back to local storage
         localStorage.setItem('stores', JSON.stringify(stores));
 
             document.getElementById('storeInput').value = '';
         }
     }
-localStorage.setItem('storeInput', JSON.stringify(item));
+
 
 let itemList = JSON.parse(localStorage.getItem('items')) || {};
  
     
-    localStorage.setItem('items', JSON.stringify(items));
+
         document.getElementById('itemInput').value = '';
     
     function showList() {
         const dropdown = document.getElementById('dropdown');
     let stores = localStorage.getItem("storeInput");
         const selectedStore = dropdown.value;
+
+
+      
 
         // Hide all lists
         const lists = document.querySelectorAll('#listsContainer ul');
@@ -86,6 +93,13 @@ let itemList = JSON.parse(localStorage.getItem('items')) || {};
         }
     }
 
+
+    let groceries = [];
+    const shoppingItem = {storeInput, itemInput};
+    groceries.push(shoppingItem)
+    
+    localStorage.setItem("groceries", JSON.stringify(groceries))  
+    groceries = JSON.parse(localStorage.getItem("groceries")) || []
 
 
         
