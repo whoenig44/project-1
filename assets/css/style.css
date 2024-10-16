@@ -26,7 +26,11 @@ header {
     font-family: "Brush Script MT", cursive;
     width: 100%;
   }
-
+.full-width-header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
   main {
     flex: 1; /* This allows the main content to grow and push the footer down */
     
