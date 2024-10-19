@@ -3,12 +3,13 @@
 }
 
 html, body {
-    height: 100%;
-    margin: 0;
-    width: 100%;
-    position: relative;
-    text-align: center;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  position: relative;
+  text-align: center;
 }
+
 .background-container {
   position: relative;
   width: 100%;
@@ -18,83 +19,110 @@ html, body {
 .background-container::before {
   content: "";
   position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/assets/images/backgroundImage.png') no-repeat center center;
-    background-size: contain; /* Ensures the image scales appropriately */
-    opacity: 0.5;
-    z-index: -1; /* Place it behind the content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/backgroundImage.png') no-repeat center center;
+  background-size: contain; /* Ensures the image scales appropriately */
+  opacity: 0.5;
+  z-index: -1; /* Place it behind the content */
 }
-
 
 .text {
   position: relative;
   z-index: 1;
-  
 }
 
-
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
-    
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
-    color: #fff;
-    font-family: "Brush Script MT", cursive;
-    width: 100%;
-  }
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+  color: #fff;
+  font-family: "Brush Script MT", cursive;
+  width: 100%;
+}
+
 .full-width-header {
   margin: 0;
   padding: 0;
   width: 100%;
 }
-  main {
-    flex: 1; /* This allows the main content to grow and push the footer down */
-    
-  }
 
-  ::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+main {
+  flex: 1; /* This allows the main content to grow and push the footer down */
+}
 
-  #instructions {
-    margin-bottom: 25px;
-    margin-top: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+::after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-  .storeNames {
-    margin-bottom: 50px;
-  }
+#instructions {
+  margin-bottom: 25px;
+  margin-top: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.storeNames {
+  margin-bottom: 50px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
+  color: #fff;
+  font-family: "Brush Script MT", cursive;
+  width: 100%;
+  font-size: 20pt;
+}
+
+.footer img {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
+}
+
+#listsContainer {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start */
+  width: auto; /* Adjust width as needed */
+  padding: 5px; /* Add padding for spacing */
+  list-style-type: none; /* Remove bullet points */
+}
+.checkbox {
+  margin-right: 10px; /* Space between checkbox and text */
+}
+
+.item-text {
  
-  .footer {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: linear-gradient(140deg, #EADEDB 0%, #BC70A4 50%, #BFD641 75%);
-    color: #fff;
-    color: #fff;
-    font-family: "Brush Script MT", cursive;
-    width: 100%;
-    font-size: 20pt;
-  }
+  margin-right: 10px; /* Space between text and delete button */
+}
 
-  .footer img {
-    width: 75px;
-    height: 75px;
-    margin: 0 auto;
-  }
+.delete-button {
+  margin-left: 10px; /* Optional: additional space if needed */
+}
