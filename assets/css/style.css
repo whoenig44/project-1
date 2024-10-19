@@ -29,6 +29,8 @@ html, body {
     z-index: -1; /* Place it behind the content */
 }
 
+
+
 .text {
   position: relative;
   z-index: 1;
