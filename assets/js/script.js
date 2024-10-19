@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Populate dropdown with stored data on page load
     const stores = JSON.parse(localStorage.getItem('stores')) || {};
