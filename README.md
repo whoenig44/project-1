@@ -1,6 +1,6 @@
-# Project Title
+# Grocery List Organizer - GLO
 
-Simple overview of use/purpose.
+The Grocery List Organizer Application is a tool for both organizing and saving your frequently sought after groceries in a simple and easy manner!.
 
 ## Description
 
