@@ -23,43 +23,34 @@ That was the main prompt for creating GLO, so people could create their typical 
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+* Simply open the link above to navigate to the deployed application, and begin entering your grocery stores and lists into the interactive UI!
+
+* As long as you are not on a browser that clears local storage upon closure of the browser, your browser will still have the grocery stores and lists saved in local storage.  Use the same browser upon each use for ideal functionality of the application!
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+* Feel free to reach out to any of the authors below regarding any requested updates or added features to the application.
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Application created by the Semantic Surfers Web Development Team, members shown below:
+  
+* [Shannon Taylor](https://github.com/ShannonJTaylor)
+* [Edwin Ortiz](https://github.com/edortiz617)
+* [Amy Griffith](https://github.com/AmySuperCoder)
+* [William Hoenig](https://github.com/whoenig44)
+![Syntax Surfers Logo](https://github.com/whoenig44/bootcamp-project-1/blob/main/assets/images/smanticsurferimage.jpg?raw=true)
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
+* 1.0 (Current Deployed Application)
     * Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/whoenig44/bootcamp-project-1/blob/main/LICENSE.md) file for full details.
 
 ## Acknowledgments
 
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+* Leveraged CSS Framework [Bootstrap 5.3.3](https://www.jsdelivr.com/about) for application GUI
+* Deployed application hosted on [Github Pages](https://pages.github.com/)
