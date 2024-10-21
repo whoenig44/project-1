@@ -1,22 +1,24 @@
 # Grocery List Organizer - GLO
 
-The Grocery List Organizer Application is a tool for both organizing and saving your frequently sought after groceries in a simple and easy manner!.
+The Grocery List Organizer Application is a tool for both organizing and saving your frequently sought after groceries in a simple and easy manner!
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+The Grocery List Organizer, a.k.a. GLO, is a tool for organizing your frequent items for shopping from various stores, and can be customized by the user to fit their specific grocery items and stores they shop at.  Many times, people buy the same items from different stores, since humans are habitual beings.  Even so, people may sometimes forget what they usually buy from a given store until after their weekly trip to the grocery store, resulting in some frustration of having to return to the store once again.
+
+That was the main prompt for creating GLO, so people could create their typical grocery list for each store they shop at, and refer back to it prior to going grocery shopping to ensure optimum satisfaction with grocery store trips.  GLO will not only allow a user to create a grocery store list from a pre-determined list of grocery stores, but also allow the user to create their own list of grocery stores available to pick from!  This makes the GLO user experience truly catered to users of all kinds, and can increase grocery shopping efficiency for all people.
 
 ## Getting Started
 
-### Dependencies
+### Prerequisites
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* GLO is a Web-Based Application, so there are no prerequisites to using GLO!  All a user needs to use GLO is a web browser on any internet-enabled device, and internet access while utilizing the application.
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* There is no installation necessary for GLO!  Simply go to the site at the bullet-point below to access the application!
+
+* https://whoenig44.github.io/bootcamp-project-1/
 
 
 ### Executing program
